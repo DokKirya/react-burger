@@ -1,13 +1,13 @@
-import React from "react";
-import style from "./App.module.css";
-import AppHeader from "../AppHeader/AppHeader";
-import BurgerIngredients from "../BurgerIngredients/BurgerIngredients";
-import BurgerConstructor from "../BurgerConstructor/BurgerConstructor";
-import { urlDomain } from "../constants/constants";
-import Modal from "../Modal/Modal";
-import IngredientDetails from "../IngredientsDetails/IngredientsDetails";
-import OrderDetails from "../OrderDetails/OrderDetails";
-import getIngridients from "../Api/Api";
+import React from 'react';
+import style from './App.module.css';
+import AppHeader from '../AppHeader/AppHeader';
+import BurgerIngredients from '../BurgerIngredients/BurgerIngredients';
+import BurgerConstructor from '../BurgerConstructor/BurgerConstructor';
+import { urlDomain } from '../constants/constants';
+import Modal from '../Modal/Modal';
+import IngredientDetails from '../Modal/IngredientsDetails/IngredientsDetails';
+import OrderDetails from '../Modal/OrderDetails/OrderDetails';
+import getIngridients from '../Api/Api';
 
 function App() {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -30,13 +30,10 @@ function App() {
 
   React.useEffect(() => {
     getIngridients(`${urlDomain}/ingredients`)
-      .then((res) =>
-        setIngredients({ data: res.data, isLoading: false })
-      )
+      .then((res) => setIngredients({ data: res.data, isLoading: false }))
       .catch((err) => {
         setIngredients({ hasError: true, isLoading: false });
       });
-
   }, []);
 
   const { data, isLoading, hasError } = ingredients;
@@ -44,9 +41,9 @@ function App() {
   return (
     <div className={style.App}>
       <AppHeader />
-      <main style={{ display: "flex" }}>
-        {isLoading && "Загрузка..."}
-        {hasError && "Произошла ошибка загрузки"}
+      <main style={{ display: 'flex' }}>
+        {isLoading && 'Загрузка...'}
+        {hasError && 'Произошла ошибка загрузки'}
         {!isLoading && !hasError && data.length && (
           <BurgerIngredients data={data} handleOpenModal={handleOpenModal} />
         )}
@@ -56,10 +53,10 @@ function App() {
       </main>
       {modalVisible && (
         <Modal header={modalInfo.header} onClose={handleCloseModal}>
-          {modalInfo.type === "ingredient_details" && (
+          {modalInfo.type === 'ingredient_details' && (
             <IngredientDetails ingredient={modalInfo.ingredient} />
           )}
-          {modalInfo.type === "order_details" && (
+          {modalInfo.type === 'order_details' && (
             <OrderDetails orderNumber={modalInfo.orderNumber} />
           )}
         </Modal>

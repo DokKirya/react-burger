@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import style from "./Modal.module.css";
-import ModalOverlay from "../ModalOverlay/ModalOverlay";
+import ModalOverlay from "./ModalOverlay/ModalOverlay";
 
 const Modal = ({ children, header, onClose }) => {
   React.useEffect(() => {

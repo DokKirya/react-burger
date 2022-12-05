@@ -1,5 +1,5 @@
-import style from "./IngredientsDetails.module.css";
-import { dataPropTypes } from "../PropTypes/PropTypes";
+import style from './IngredientsDetails.module.css';
+import { dataPropTypes } from '../../PropTypes/PropTypes';
 
 const IngredientDetails = ({ ingredient }) => {
   return (
@@ -17,7 +17,7 @@ const IngredientDetails = ({ ingredient }) => {
             {ingredient.calories}
           </div>
         </div>
-        <div className={style.ingredients__element} >
+        <div className={style.ingredients__element}>
           <div className="mb-2 text text_type_main-default text_color_inactive">
             Белки, г
           </div>
@@ -25,7 +25,7 @@ const IngredientDetails = ({ ingredient }) => {
             {ingredient.proteins}
           </div>
         </div>
-        <div className={style.ingredients__element} >
+        <div className={style.ingredients__element}>
           <div className="mb-2 text text_type_main-default text_color_inactive">
             Жиры, г
           </div>
