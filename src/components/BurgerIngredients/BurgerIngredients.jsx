@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './BurgerIngredients.module.css';
 import Tabs from '../Tabs/Tabs';
-import IngredientsList from '../IngredientsList/IngredientsList';
+import IngredientsList from './IngredientsList/IngredientsList';
 
 const BurgerIngredients = ({ data }) => {
   return (
