@@ -1,15 +1,14 @@
-const checkResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Ошибка: ${res.status}`);
-};
+const burgerUrl = "https://norma.nomoreparties.space/api";
 
-const getIngridients = (url) => {
+const checkRes = (res) => {
+  return res.ok ? res.json() : res.json().then(err => Promise.reject(err))
+}
+
+function getIngredients() {
   
-  return fetch(url)
-    .then(checkResponse)
+  return fetch(`${burgerUrl}/ingredients`)
+  .then(checkRes)
     
 };
 
-export default getIngridients;
+export default getIngredients;

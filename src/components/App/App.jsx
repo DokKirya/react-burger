@@ -3,11 +3,10 @@ import style from './App.module.css';
 import AppHeader from '../AppHeader/AppHeader';
 import BurgerIngredients from '../BurgerIngredients/BurgerIngredients';
 import BurgerConstructor from '../BurgerConstructor/BurgerConstructor';
-import { urlDomain } from '../constants/constants';
 import Modal from '../Modal/Modal';
 import IngredientDetails from '../Modal/IngredientsDetails/IngredientsDetails';
 import OrderDetails from '../Modal/OrderDetails/OrderDetails';
-import getIngridients from '../Api/Api';
+import getIngredients from '../Api/Api';
 
 function App() {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -29,7 +28,7 @@ function App() {
   });
 
   React.useEffect(() => {
-    getIngridients(`${urlDomain}/ingredients`)
+    getIngredients()
       .then((res) => setIngredients({ data: res.data, isLoading: false }))
       .catch((err) => {
         setIngredients({ hasError: true, isLoading: false });
