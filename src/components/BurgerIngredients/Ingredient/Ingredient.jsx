@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { dataPropTypes } from '../../PropTypes/PropTypes';
+import { dataPropTypes } from '../../utils/PropTypes';
 
 import {
   Counter,

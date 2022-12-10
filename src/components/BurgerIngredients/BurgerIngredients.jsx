@@ -2,7 +2,7 @@ import React from 'react';
 import style from './BurgerIngredients.module.css';
 import Tabs from './Tabs/Tabs';
 import IngredientsList from './IngredientsList/IngredientsList';
-import { dataPropTypes } from '../PropTypes/PropTypes';
+import { dataPropTypes } from '../utils/PropTypes';
 import PropTypes from 'prop-types';
 
 const BurgerIngredients = ({ data, handleOpenModal }) => {

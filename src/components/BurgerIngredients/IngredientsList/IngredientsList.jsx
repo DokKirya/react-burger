@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { dataPropTypes } from '../../PropTypes/PropTypes';
+import { dataPropTypes } from '../../utils/PropTypes';
 import Ingredient from '../Ingredient/Ingredient';
 import style from './IngredientsList.module.css';
 
@@ -23,11 +23,11 @@ const IngredientsList = ({ id, title, ingredients, handleOpenModal }) => {
   );
 };
 
- IngredientsList.propTypes = {
+IngredientsList.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   ingredients: PropTypes.arrayOf(dataPropTypes.isRequired).isRequired,
-  handleOpenModal: PropTypes.func.isRequired
+  handleOpenModal: PropTypes.func.isRequired,
 };
 
 export default IngredientsList;

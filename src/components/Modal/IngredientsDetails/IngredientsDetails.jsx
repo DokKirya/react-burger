@@ -1,5 +1,5 @@
 import style from './IngredientsDetails.module.css';
-import { dataPropTypes } from '../../PropTypes/PropTypes';
+import { dataPropTypes } from '../../utils/PropTypes';
 
 const IngredientDetails = ({ ingredient }) => {
   return (

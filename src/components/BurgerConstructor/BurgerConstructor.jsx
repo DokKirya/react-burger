@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { dataPropTypes } from '../PropTypes/PropTypes';
+import { dataPropTypes } from '../utils/PropTypes';
 import {
   ConstructorElement,
   DragIcon,
@@ -12,7 +12,6 @@ import style from './BurgerConstructor.module.css';
 
 const BurgerConstructor = ({ data, onOpenModal }) => {
   const [totalPrice, setTotalPrice] = React.useState(0);
-  const [burgerBun, setBurgerBun] = React.useState('');
 
   const handleOpenModal = () => {
     onOpenModal({
@@ -23,11 +22,9 @@ const BurgerConstructor = ({ data, onOpenModal }) => {
   };
 
   const ingredients = data.filter((i) => i.type !== 'bun');
-
+  const bun = data.find((i) => i.type === 'bun');
+  
   React.useEffect(() => {
-    const bun = data.find((i) => i.type === 'bun');
-    setBurgerBun(bun);
-
     let sumPrice = 0;
     ingredients.forEach((element) => {
       sumPrice += element.price;
@@ -42,9 +39,9 @@ const BurgerConstructor = ({ data, onOpenModal }) => {
         <ConstructorElement
           type={'top'}
           isLocked={true}
-          text={`${burgerBun.name} (верх)`}
-          price={burgerBun.price}
-          thumbnail={burgerBun.image}
+          text={`${bun.name} (верх)`}
+          price={bun.price}
+          thumbnail={bun.image}
         />
       </div>
       <div className={style.filling}>
@@ -69,9 +66,9 @@ const BurgerConstructor = ({ data, onOpenModal }) => {
         <ConstructorElement
           type={'bottom'}
           isLocked={true}
-          text={`${burgerBun.name} (низ)`}
-          price={burgerBun.price}
-          thumbnail={burgerBun.image}
+          text={`${bun.name} (низ)`}
+          price={bun.price}
+          thumbnail={bun.image}
         />
       </div>
       <div className={`${style.order__info} mt-10 mr-4`}>

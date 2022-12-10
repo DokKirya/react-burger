@@ -6,7 +6,7 @@ import BurgerConstructor from '../BurgerConstructor/BurgerConstructor';
 import Modal from '../Modal/Modal';
 import IngredientDetails from '../Modal/IngredientsDetails/IngredientsDetails';
 import OrderDetails from '../Modal/OrderDetails/OrderDetails';
-import getIngredients from '../Api/Api';
+import getIngredients from '../utils/Api';
 
 function App() {
   const [modalVisible, setModalVisible] = React.useState(false);
@@ -40,7 +40,7 @@ function App() {
   return (
     <div className={style.App}>
       <AppHeader />
-      <main style={{ display: 'flex' }}>
+      <main className={style.main}>
         {isLoading && 'Загрузка...'}
         {hasError && 'Произошла ошибка загрузки'}
         {!isLoading && !hasError && data.length && (
